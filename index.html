@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1 maximum-scale=1, minimum-scale=1">
+    <link rel="stylesheet" href="css/fontello.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="contenedor0">
+            <h1 class="icon-menu">KFC</h1>
+            <input type="checkbox" id="menu-bar">
+            <label class="icon-menu" for="menu-bar">0</label>
+            <nav class="menu">
+                <a href="">Inicio</a>
+                <a href="../Formulario-kfc/Formulario.html">Inicia Sesión</a>
+                <a href="">Combos</a>
+                <a href="">Bebidas</a>
+                <a href="">Otros Productos</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="banner">
+            <img src="img/banner.jpg" alt="Imagen">
+            <div class="contenedor">
+                <br><br>
+                <h2>Bienvenido a la pollería <br> web más famosa</h2>
+                <p>"KFC ("Kentucky Fried Chicken") <br> para chuparse los dedos"</p>
+                <a href=*#*>leer más...</a>
+                <br><br>
+                <br>
+            </div>
+        </section>
+
+        <section id="bienvenidos">
+            <h2>KFC ofrece la mejor comida rápida</h2>
+            <p></p>
+        </section>
+        <section id="blog">
+            <h3>A los mejores precios: </h3>
+            <div class=" contenedor">
+                <article>
+                    <img src="img/ComboKfc1.jpg">
+                    <h4>Combo Personal
+                    </h4>
+                </article>
+                <article>
+                    <img src="img/ComboKfc2.jpg">
+                    <h4>Combo Mega-Familar</h4>
+                </article>
+                <article>
+                    <img src="img/ComboKfc3.jpg">
+                    <h4>Alitas</h4>
+                </article>
+            </div>
+        </section>
+
+        <section id="info">
+            <h2>Lo más pedido: </h2>
+            <div class="rating"></div>
+            <div class="contenedor">
+                <div class="info-pet">
+                    <img src="img/Kfcsip1.jpg">
+                    <h4>Twister</h4>
+                </div>
+                <div class="info-pet">
+                    <img src="img/Kfcsip2.jpg">
+                    <h4>Familiar</h4>
+                </div>
+                <div class="info-pet">
+                    <img src="img/Kfcsip3.jpg">
+                    <h4>Mega-Familiar</h4>
+                </div>
+                <div class="info-pet">
+                    <img src="img/Kfcsip4.jpg">
+                    <h4>Combo Alitas</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h1>CALIFICANOS!</h1>
+                <div class="rating">
+                    <span class="star" data-rating="1">&#9733;</span>
+                    <span class="star" data-rating="2">&#9733;</span>
+                    <span class="star" data-rating="3">&#9733;</span>
+                    <span class="star" data-rating="4">&#9733;</span>
+                    <span class="star" data-rating="5">&#9733;</span>
+                </div>
+              <p class="rating-value">0</p>
+              <p class="mensaje">¡Gracias por tu calificación!</p>
+            </div>
+        </section>
+
+        <section>
+            <center>
+                <h2>Dejanos tus Comentarios</h2><br>
+                <!-- Solo mostramos la caja de comentarios si el usuario está registrado -->
+                <script>
+                if (localStorage.getItem('registrado') === 'true') {
+                    document.write(`
+                        <textarea id="entradaComentario" placeholder="Escribe un comentario..."></textarea>
+                        <button onclick="nuevoComentario()">Agregar</button>
+                        <ul id="comentarios"></ul>
+                    `);
+                } else {
+                    document.write(`
+                        <p>Debes estar registrado para dejar un comentario.</p>
+                        <button onclick="registrar()">Registrarse</button>
+                    `);
+                }
+                </script>
+
+                <script>
+                function registrar() {
+                    var nombre = prompt('Por favor ingresa tu nombre:');
+                    if (nombre !== null) {
+                        localStorage.setItem('registrado', 'true');
+                        alert('Gracias por registrarte, ' + nombre + '!');
+                        location.reload();  // Recargamos la página para mostrar la caja de comentarios
+                    }
+                }
+
+                function nuevoComentario() {
+                    // ... tu código para agregar un comentario aquí ...
+                    var li = document.createElement("li");
+                    var entrada = document.getElementById("entradaComentario").value;
+                    var t = document.createTextNode(entrada);
+                    li.appendChild(t);
+                    if (entrada === '') {
+                        alert("Debes escribir algo!");
+                    } else {
+                        document.getElementById("comentarios").appendChild(li);
+                    }
+                    document.getElementById("entradaComentario").value = "";
+
+                    var span = document.createElement("SPAN");
+                    var txt = document.createTextNode("\u00D7");
+                    span.className = "cerrar";
+                    span.appendChild(txt);
+                    li.appendChild(span);
+
+                    for (i = 0; i < cerrar.length; i++) {
+                        cerrar[i].onclick = function() {
+                            var div = this.parentElement;
+                            div.style.display = "none";
+                        }
+                    }
+                }
+                </script>
+            </center>
+        </section>
+    </main>
+    <footer>
+        <div class="contenedor">
+            <p class="copy">KFC &copy; 2023</p>
+            <div class="sociales">
+                <a class="icon-facebook-squared" href="#"></a>
+                <a class="icon-twitter" href="#"></a>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+    <script src="estrellas.js"></script>
+</html>

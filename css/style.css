@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0; 
+  }
+  
+  .container {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    text-align: center;
+    padding: 20px;
+    max-width: 600px; /* Ancho máximo del contenido */
+    margin: 0 auto; /* Centrar horizontalmente */
+  }
+  
+  .star {
+    font-size: 30px; /* Tamaño más grande */
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 10px;
+    color: #e1e1e1; /* Color de estrellas inactivas */
+    transition: transform 0.2s, color 0.2s;
+  }
+  
+  .star:hover {
+    transform: scale(1.2);
+    color: #FFD700; /* Color de estrellas al pasar el mouse (amarillo) */
+  }
+  
+  .star.active {
+    color: #FFD700; /* Color de estrellas activas (amarillo) */
+    transition: color 0.2s;
+  }
+  
+  .rating-value {
+    font-size: 24px; /* Tamaño del valor de calificación */
+    margin-top: 10px;
+    color: #333; /* Color del valor de calificación */
+  }
+  
+  .mensaje {
+    display: none;
+    text-align: center;
+    font-size: 25px;
+    color: #009688; /* Color del mensaje de agradecimiento (verde azulado) */
+    margin-top: 10px;
+  }

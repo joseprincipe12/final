@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* ... tus estilos CSS aquí ... */
+    </style>
+</head>
+<body>
+
+<h2>Dejanos tus Comentarios</h2>
+
+<!-- Solo mostramos la caja de comentarios si el usuario está registrado -->
+<script>
+if (localStorage.getItem('registrado') === 'true') {
+    document.write(`
+        <textarea id="entradaComentario" placeholder="Escribe un comentario..."></textarea>
+        <button onclick="nuevoComentario()">Agregar</button>
+        <ul id="comentarios"></ul>
+    `);
+} else {
+    document.write(`
+        <p>Debes estar registrado para dejar un comentario.</p>
+        <button onclick="registrar()">Registrarse</button>
+    `);
+}
+</script>
+
+<script>
+function registrar() {
+    var nombre = prompt('Por favor ingresa tu nombre:');
+    if (nombre !== null) {
+        localStorage.setItem('registrado', 'true');
+        alert('Gracias por registrarte, ' + nombre + '!');
+        location.reload();  // Recargamos la página para mostrar la caja de comentarios
+    }
+}
+
+function nuevoComentario() {
+    // ... tu código para agregar un comentario aquí ...
+    var li = document.createElement("li");
+    var entrada = document.getElementById("entradaComentario").value;
+    var t = document.createTextNode(entrada);
+    li.appendChild(t);
+    if (entrada === '') {
+        alert("Debes escribir algo!");
+    } else {
+        document.getElementById("comentarios").appendChild(li);
+    }
+    document.getElementById("entradaComentario").value = "";
+
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "cerrar";
+    span.appendChild(txt);
+    li.appendChild(span);
+
+    for (i = 0; i < cerrar.length; i++) {
+        cerrar[i].onclick = function() {
+            var div = this.parentElement;
+            div.style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
